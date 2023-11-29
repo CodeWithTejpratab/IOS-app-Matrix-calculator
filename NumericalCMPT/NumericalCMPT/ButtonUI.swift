@@ -10,6 +10,8 @@ import SwiftUI
 struct ButtonUI: View {
     @State private var enterButton = "Enter"
     @State private var number: Float = 0
+    @State private var numberDisplay: String = ""
+    // this string helps concatinate numbers you can display 12
     var body: some View {
         VStack(){
             HStack{
@@ -28,7 +30,8 @@ struct ButtonUI: View {
             HStack() {
                 Button(action: {
                     //do something
-                        number=1
+                    numberDisplay += "1"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -42,7 +45,8 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        number=2
+                    numberDisplay += "2"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -56,7 +60,8 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        number=3
+                    numberDisplay += "3"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -74,7 +79,8 @@ struct ButtonUI: View {
             HStack() {
                 Button(action: {
                     //do something
-                        number=4
+                    numberDisplay += "4"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -88,7 +94,8 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        number=5
+                        numberDisplay += "5"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -102,7 +109,8 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        number=6
+                        numberDisplay += "6"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -120,7 +128,8 @@ struct ButtonUI: View {
             HStack() {
                 Button(action: {
                     //do something
-                        number=7
+                        numberDisplay += "7"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -134,7 +143,8 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        number=8
+                        numberDisplay += "8"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -148,7 +158,8 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        number=9
+                        numberDisplay += "9"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -180,7 +191,8 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        number=0
+                        numberDisplay += "0"
+                    number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -213,7 +225,8 @@ struct ButtonUI: View {
                 Button(action: {
                     //do something
                     if enterButton == "Enter"{
-                        enterButton = "Compute"
+                        numberDisplay = "0"
+                        number = 0
                     }
                     else if enterButton == "Compute"{
                         enterButton = "Enter"
@@ -231,7 +244,13 @@ struct ButtonUI: View {
                                 .fontWidth(.condensed)
                                 .foregroundColor(Color(.white))
                         )
-                    })
+                }).gesture(LongPressGesture(minimumDuration: 0.5).onEnded { _ in
+                    if enterButton == "Enter" {
+                            enterButton = "Compute"
+                        } else if enterButton == "Compute" {
+                            enterButton = "Enter"
+                        }
+                }) // I was experimenting with this so feel free to change it
             }//HStack ends here
             .padding(.top)
             .padding(.bottom,2)
