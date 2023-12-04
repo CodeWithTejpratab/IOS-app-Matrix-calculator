@@ -73,6 +73,66 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                VStack{
+                    Button(action: {
+                        //do something
+                        
+                    }, label: {
+                        Circle()
+                            .fill(Color.pink)
+                            .frame(width: 30, height: 30)
+                            .shadow(radius: 10)
+                            .overlay(
+                                Image(systemName: "arrowshape.up")
+                                    .font(.largeTitle)
+                                    .foregroundColor(Color(.white))
+                            )
+                    })
+                    HStack{
+                        Button(action: {
+                            //do something
+                            
+                        }, label: {
+                            Circle()
+                                .fill(Color.pink)
+                                .frame(width: 30, height: 30)
+                                .shadow(radius: 10)
+                                .overlay(
+                                    Image(systemName: "arrowshape.left")
+                                        .font(.largeTitle)
+                                        .foregroundColor(Color(.white))
+                                )
+                        })
+                        Button(action: {
+                            //do something
+                            
+                        }, label: {
+                            Circle()
+                                .fill(Color.pink)
+                                .frame(width: 30, height: 30)
+                                .shadow(radius: 10)
+                                .overlay(
+                                    Image(systemName: "arrowshape.right")
+                                        .font(.largeTitle)
+                                        .foregroundColor(Color(.white))
+                                )
+                        })
+                    }//HStack ends here
+                    Button(action: {
+                        //do something
+                   
+                    }, label: {
+                        Circle()
+                            .fill(Color.pink)
+                            .frame(width: 30, height: 30)
+                            .shadow(radius: 10)
+                            .overlay(
+                                Image(systemName: "arrowshape.down")
+                                    .font(.largeTitle)
+                                    .foregroundColor(Color(.white))
+                            )
+                    })
+                }//VStack ends here
             }//HStack ends here
             .padding(.top, 20)
             
@@ -118,6 +178,20 @@ struct ButtonUI: View {
                         .shadow(radius: 20)
                         .overlay(
                             Text("6")
+                                .font(.largeTitle)
+                                .foregroundColor(Color(.white))
+                        )
+                    })
+                Button(action: {
+                    //do something
+                      
+                }, label: {
+                    Circle()
+                        .fill(Color.pink)
+                        .frame(width: 75, height: 75)
+                        .shadow(radius: 20)
+                        .overlay(
+                            Text("clear")
                                 .font(.largeTitle)
                                 .foregroundColor(Color(.white))
                         )
@@ -171,6 +245,20 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                Button(action: {
+                    //do something
+                     
+                }, label: {
+                    Circle()
+                        .fill(Color.pink)
+                        .frame(width: 75, height: 75)
+                        .shadow(radius: 20)
+                        .overlay(
+                            Text("back")
+                                .font(.largeTitle)
+                                .foregroundColor(Color(.white))
+                        )
+                    })
             }//HStack ends here
             .padding(.top,1)
             
@@ -214,6 +302,20 @@ struct ButtonUI: View {
                         .shadow(radius: 20)
                         .overlay(
                             Text("-")
+                                .font(.largeTitle)
+                                .foregroundColor(Color(.white))
+                        )
+                    })
+                Button(action: {
+                    //do something
+                        
+                }, label: {
+                    Circle()
+                        .fill(Color.pink)
+                        .frame(width: 75, height: 75)
+                        .shadow(radius: 20)
+                        .overlay(
+                            Text("New")
                                 .font(.largeTitle)
                                 .foregroundColor(Color(.white))
                         )
