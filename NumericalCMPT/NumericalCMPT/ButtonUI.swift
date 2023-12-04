@@ -83,10 +83,11 @@ struct ButtonUI: View {
                         //do something
                         
                     }, label: {
-                        Circle()
+                        Rectangle()
                             .fill(Color.pink)
-                            .frame(width: 30, height: 30)
+                            .frame(width: 50, height: 30)
                             .shadow(radius: 10)
+                            .clipShape(Capsule())
                             .overlay(
                                 Image(systemName: "arrowshape.up")
                                     .font(.largeTitle)
@@ -98,10 +99,11 @@ struct ButtonUI: View {
                             //do something
                             
                         }, label: {
-                            Circle()
+                            Rectangle()
                                 .fill(Color.pink)
-                                .frame(width: 30, height: 30)
+                                .frame(width: 30, height: 50)
                                 .shadow(radius: 10)
+                                .clipShape(Capsule())
                                 .overlay(
                                     Image(systemName: "arrowshape.left")
                                         .font(.largeTitle)
@@ -112,10 +114,11 @@ struct ButtonUI: View {
                             //do something
                             
                         }, label: {
-                            Circle()
+                            Rectangle()
                                 .fill(Color.pink)
-                                .frame(width: 30, height: 30)
+                                .frame(width: 30, height: 50)
                                 .shadow(radius: 10)
+                                .clipShape(Capsule())
                                 .overlay(
                                     Image(systemName: "arrowshape.right")
                                         .font(.largeTitle)
@@ -127,10 +130,11 @@ struct ButtonUI: View {
                         //do something
                    
                     }, label: {
-                        Circle()
+                        Rectangle()
                             .fill(Color.pink)
-                            .frame(width: 30, height: 30)
+                            .frame(width: 50, height: 30)
                             .shadow(radius: 10)
+                            .clipShape(Capsule())
                             .overlay(
                                 Image(systemName: "arrowshape.down")
                                     .font(.largeTitle)
