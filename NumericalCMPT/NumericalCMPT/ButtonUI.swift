@@ -183,7 +183,8 @@ struct ButtonUI: View {
                         )
                     })
                 Button(action: {
-                    //do something
+                    numberDisplay = "0"
+                    number = 0
                       
                 }, label: {
                     Circle()
@@ -246,7 +247,8 @@ struct ButtonUI: View {
                         )
                     })
                 Button(action: {
-                    //do something
+                    number = number/10
+                    numberDisplay = String(number)
                      
                 }, label: {
                     Circle()
