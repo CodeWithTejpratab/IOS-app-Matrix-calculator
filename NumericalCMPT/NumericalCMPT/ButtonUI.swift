@@ -10,6 +10,8 @@ import SwiftUI
 struct ButtonUI: View {
     @State private var enterButton = "Enter"
     @State private var number: Float = 0
+    @State private var didTap: Bool = false
+    @State private var checkinput: String = "AL"
     @State private var numberDisplay: String = ""
     // this string helps concatinate numbers you can display 12
     var body: some View {
@@ -30,13 +32,14 @@ struct ButtonUI: View {
             HStack() {
                 Button(action: {
                     //do something
+                    checkinput = "C"
                     numberDisplay += "1"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("1")
                                 .font(.largeTitle)
@@ -45,13 +48,14 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
+                    checkinput = "C"
                     numberDisplay += "2"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("2")
                                 .font(.largeTitle)
@@ -60,13 +64,14 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
+                    checkinput = "C"
                     numberDisplay += "3"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("3")
                                 .font(.largeTitle)
@@ -78,10 +83,11 @@ struct ButtonUI: View {
                         //do something
                         
                     }, label: {
-                        Circle()
+                        Rectangle()
                             .fill(Color.pink)
-                            .frame(width: 30, height: 30)
+                            .frame(width: 50, height: 30)
                             .shadow(radius: 10)
+                            .clipShape(Capsule())
                             .overlay(
                                 Image(systemName: "arrowshape.up")
                                     .font(.largeTitle)
@@ -93,10 +99,11 @@ struct ButtonUI: View {
                             //do something
                             
                         }, label: {
-                            Circle()
+                            Rectangle()
                                 .fill(Color.pink)
-                                .frame(width: 30, height: 30)
+                                .frame(width: 30, height: 50)
                                 .shadow(radius: 10)
+                                .clipShape(Capsule())
                                 .overlay(
                                     Image(systemName: "arrowshape.left")
                                         .font(.largeTitle)
@@ -107,10 +114,11 @@ struct ButtonUI: View {
                             //do something
                             
                         }, label: {
-                            Circle()
+                            Rectangle()
                                 .fill(Color.pink)
-                                .frame(width: 30, height: 30)
+                                .frame(width: 30, height: 50)
                                 .shadow(radius: 10)
+                                .clipShape(Capsule())
                                 .overlay(
                                     Image(systemName: "arrowshape.right")
                                         .font(.largeTitle)
@@ -122,10 +130,11 @@ struct ButtonUI: View {
                         //do something
                    
                     }, label: {
-                        Circle()
+                        Rectangle()
                             .fill(Color.pink)
-                            .frame(width: 30, height: 30)
+                            .frame(width: 50, height: 30)
                             .shadow(radius: 10)
+                            .clipShape(Capsule())
                             .overlay(
                                 Image(systemName: "arrowshape.down")
                                     .font(.largeTitle)
@@ -139,13 +148,14 @@ struct ButtonUI: View {
             HStack() {
                 Button(action: {
                     //do something
+                    checkinput = "C"
                     numberDisplay += "4"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("4")
                                 .font(.largeTitle)
@@ -154,13 +164,14 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        numberDisplay += "5"
+                    checkinput = "C"
+                    numberDisplay += "5"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("5")
                                 .font(.largeTitle)
@@ -169,13 +180,14 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        numberDisplay += "6"
+                    checkinput = "C"
+                    numberDisplay += "6"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("6")
                                 .font(.largeTitle)
@@ -183,16 +195,18 @@ struct ButtonUI: View {
                         )
                     })
                 Button(action: {
-                    numberDisplay = "0"
-                    number = 0
+                    //do something
+                    numberDisplay="0"
+                    number=0
+                    checkinput = "AL"
                       
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
-                            Text("clear")
+                            Text("\(checkinput)")
                                 .font(.largeTitle)
                                 .foregroundColor(Color(.white))
                         )
@@ -203,13 +217,14 @@ struct ButtonUI: View {
             HStack() {
                 Button(action: {
                     //do something
-                        numberDisplay += "7"
+                    checkinput = "C"
+                    numberDisplay += "7"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("7")
                                 .font(.largeTitle)
@@ -218,13 +233,14 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        numberDisplay += "8"
+                    checkinput = "C"
+                    numberDisplay += "8"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("8")
                                 .font(.largeTitle)
@@ -233,13 +249,14 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        numberDisplay += "9"
+                    checkinput = "C"
+                    numberDisplay += "9"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("9")
                                 .font(.largeTitle)
@@ -253,10 +270,10 @@ struct ButtonUI: View {
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
-                            Text("back")
+                            Text("del")
                                 .font(.largeTitle)
                                 .foregroundColor(Color(.white))
                         )
@@ -271,8 +288,8 @@ struct ButtonUI: View {
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text(".")
                                 .font(.largeTitle)
@@ -281,13 +298,13 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                        numberDisplay += "0"
+                    numberDisplay += "0"
                     number = Float(numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("0")
                                 .font(.largeTitle)
@@ -300,8 +317,8 @@ struct ButtonUI: View {
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
                             Text("-")
                                 .font(.largeTitle)
@@ -314,10 +331,10 @@ struct ButtonUI: View {
                 }, label: {
                     Circle()
                         .fill(Color.pink)
-                        .frame(width: 75, height: 75)
-                        .shadow(radius: 20)
+                        .frame(width: 70, height: 65)
+                        .shadow(radius: 10)
                         .overlay(
-                            Text("New")
+                            Text("new")
                                 .font(.largeTitle)
                                 .foregroundColor(Color(.white))
                         )
@@ -339,7 +356,7 @@ struct ButtonUI: View {
                 }, label: {
                     Rectangle()
                         .fill(Color.green)
-                        .frame(width: 250, height: 75)
+                        .frame(width: 250, height: 65)
                         .shadow(radius: 200)
                         .clipShape(Capsule())
                         .overlay(
