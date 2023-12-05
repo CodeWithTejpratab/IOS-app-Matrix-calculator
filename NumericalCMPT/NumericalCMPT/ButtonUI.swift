@@ -343,9 +343,10 @@ struct ButtonUI: View {
                         )
                     })
                 Button(action: {
-                    number=number/10
-                    numberDisplay=String(number)
-                     
+                    if !numberDisplay.isEmpty {
+                        numberDisplay.removeLast()
+                        number = Float(numberDisplay) ?? 0
+                    }
                 }, label: {
                     Circle()
                         .fill(Color.pink)
