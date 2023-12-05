@@ -13,6 +13,8 @@ struct ButtonUI: View {
     @State private var didTap: Bool = false
     @State private var checkinput: String = "AL"
     @State private var numberDisplay: String = ""
+    @State private var operationType = "gauss"
+    @State private var matrixSize: Int = 2
     // this string helps concatinate numbers you can display 12
     var body: some View {
         VStack(){
@@ -27,6 +29,83 @@ struct ButtonUI: View {
             }//HStack ends here
             .padding(.bottom, 50)
             .padding(.top, 150)
+            
+            HStack{
+                Button(action: {
+                    operationType = (operationType == "gauss") ? "gaussJordan" : "gauss"
+                }, label: {
+                    Rectangle()
+                        .fill(Color.gray)
+                        .frame(width: 115, height: 60)
+                        .shadow(radius: 150)
+                        .clipShape(Capsule())
+                        .overlay(
+                            Text(operationType)
+                                .foregroundColor(Color(.white))
+                        )
+                }
+                )
+                Button(action: {
+                    //do something
+                    matrixSize=2
+                }, label: {
+                    Rectangle()
+                        .fill(Color.pink)
+                        .frame(width: 60, height: 60)
+                        .shadow(radius: 10)
+                        .overlay(
+                            Text("2")
+                                .font(.largeTitle)
+                                .foregroundColor(Color(.white))
+                        )
+                    })
+                Button(action: {
+                    //do something
+                    matrixSize=3
+                }, label: {
+                    Rectangle()
+                        .fill(Color.pink)
+                        .frame(width: 60, height: 60)
+                        .shadow(radius: 10)
+                        .overlay(
+                            Text("3")
+                                .font(.largeTitle)
+                                .foregroundColor(Color(.white))
+                        )
+                    })
+                Button(action: {
+                    //do something
+                    matrixSize=4
+                }, label: {
+                    Rectangle()
+                        .fill(Color.pink)
+                        .frame(width: 60, height: 60)
+                        .shadow(radius: 10)
+                        .overlay(
+                            Text("4")
+                                .font(.largeTitle)
+                                .foregroundColor(Color(.white))
+                        )
+                    })
+                Button(action: {
+                    //do something
+                    matrixSize=5
+                }, label: {
+                    Rectangle()
+                        .fill(Color.pink)
+                        .frame(width: 60, height: 60)
+                        .shadow(radius: 10)
+                        .overlay(
+                            Text("5")
+                                .font(.largeTitle)
+                                .foregroundColor(Color(.white))
+                        )
+                    })
+                
+                
+            }
+            .padding(.bottom, -40)
+            .padding(.top, -40)
     
             
             HStack() {
@@ -264,9 +343,10 @@ struct ButtonUI: View {
                         )
                     })
                 Button(action: {
-                    number = number/10
-                    numberDisplay = String(number)
-                     
+                    if !numberDisplay.isEmpty {
+                        numberDisplay.removeLast()
+                        number = Float(numberDisplay) ?? 0
+                    }
                 }, label: {
                     Circle()
                         .fill(Color.pink)
