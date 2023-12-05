@@ -36,7 +36,7 @@ struct ButtonUI: View {
                 }, label: {
                     Rectangle()
                         .fill(Color.gray)
-                        .frame(width: 115, height: 50)
+                        .frame(width: 115, height: 60)
                         .shadow(radius: 150)
                         .clipShape(Capsule())
                         .overlay(
@@ -50,8 +50,8 @@ struct ButtonUI: View {
                     matrixSize=2
                 }, label: {
                     Rectangle()
-                        .fill(Color.black)
-                        .frame(width: 50, height: 50)
+                        .fill(Color.pink)
+                        .frame(width: 60, height: 60)
                         .shadow(radius: 10)
                         .overlay(
                             Text("2")
@@ -64,8 +64,8 @@ struct ButtonUI: View {
                     matrixSize=3
                 }, label: {
                     Rectangle()
-                        .fill(Color.black)
-                        .frame(width: 50, height: 50)
+                        .fill(Color.pink)
+                        .frame(width: 60, height: 60)
                         .shadow(radius: 10)
                         .overlay(
                             Text("3")
@@ -78,8 +78,8 @@ struct ButtonUI: View {
                     matrixSize=4
                 }, label: {
                     Rectangle()
-                        .fill(Color.black)
-                        .frame(width: 50, height: 50)
+                        .fill(Color.pink)
+                        .frame(width: 60, height: 60)
                         .shadow(radius: 10)
                         .overlay(
                             Text("4")
@@ -92,8 +92,8 @@ struct ButtonUI: View {
                     matrixSize=5
                 }, label: {
                     Rectangle()
-                        .fill(Color.black)
-                        .frame(width: 50, height: 50)
+                        .fill(Color.pink)
+                        .frame(width: 60, height: 60)
                         .shadow(radius: 10)
                         .overlay(
                             Text("5")
@@ -104,7 +104,8 @@ struct ButtonUI: View {
                 
                 
             }
-            
+            .padding(.bottom, -40)
+            .padding(.top, -40)
     
             
             HStack() {
