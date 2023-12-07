@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A55A5C4E-6CA9-45E8-BE06-EB26162B20FE"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8BC49D3-E24B-4BC0-8474-DD85408650CA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NumericalCMPT/python_wrapper.c"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "InitializePythonRuntime()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "B8BC49D3-E24B-4BC0-8474-DD85408650CA - 2909d6fd7656bc00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InitializePythonRuntime"
+                  moduleName = "NumericalCMPT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emil07/Desktop/-_-/NumComp/Application/NumericalCMPT/NumericalCMPT/python_wrapper.c"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "530">
+               </Location>
+               <Location
+                  uuid = "B8BC49D3-E24B-4BC0-8474-DD85408650CA - 2909d6fd7656bc00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InitializePythonRuntime"
+                  moduleName = "NumericalCMPT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emil07/Desktop/-_-/NumComp/Application/NumericalCMPT/NumericalCMPT/python_wrapper.c"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "260">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

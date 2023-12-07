@@ -20,6 +20,12 @@
 		B95497882B1D4EEA00816138 /* Python-3.9-iOS-support.b12 in Resources */ = {isa = PBXBuildFile; fileRef = B95497872B1D4EEA00816138 /* Python-3.9-iOS-support.b12 */; };
 		B954978D2B1D537500816138 /* Python.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B954978B2B1D536200816138 /* Python.xcframework */; };
 		B954978E2B1D537500816138 /* Python.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B954978B2B1D536200816138 /* Python.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B9AF591B2B219BE2000BE18B /* python_wrapper.c in Sources */ = {isa = PBXBuildFile; fileRef = B9AF591A2B219BE2000BE18B /* python_wrapper.c */; };
+		B9AF591D2B219EEC000BE18B /* addition.py in Resources */ = {isa = PBXBuildFile; fileRef = B9AF591C2B219EEC000BE18B /* addition.py */; };
+		B9AF591E2B21A546000BE18B /* addition.py in Resources */ = {isa = PBXBuildFile; fileRef = B9AF591C2B219EEC000BE18B /* addition.py */; };
+		B9AF591F2B21A546000BE18B /* addition.py in Resources */ = {isa = PBXBuildFile; fileRef = B9AF591C2B219EEC000BE18B /* addition.py */; };
+		B9AF59202B21A54B000BE18B /* Python.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B954978B2B1D536200816138 /* Python.xcframework */; };
+		B9AF59212B21A54C000BE18B /* Python.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B954978B2B1D536200816138 /* Python.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,10 @@
 		8DE96A442B1126A0001692E4 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		B95497872B1D4EEA00816138 /* Python-3.9-iOS-support.b12 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Python-3.9-iOS-support.b12"; sourceTree = "<group>"; };
 		B954978B2B1D536200816138 /* Python.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Python.xcframework; sourceTree = "<group>"; };
+		B9AF59182B219BE2000BE18B /* NumericalCMPT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumericalCMPT-Bridging-Header.h"; sourceTree = "<group>"; };
+		B9AF59192B219BE2000BE18B /* python_wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = python_wrapper.h; sourceTree = "<group>"; };
+		B9AF591A2B219BE2000BE18B /* python_wrapper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = python_wrapper.c; sourceTree = "<group>"; };
+		B9AF591C2B219EEC000BE18B /* addition.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = addition.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9AF59202B21A54B000BE18B /* Python.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9AF59212B21A54C000BE18B /* Python.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,9 +138,13 @@
 				B954978B2B1D536200816138 /* Python.xcframework */,
 				8DD460582B119BB300F8A034 /* LoadingView.swift */,
 				8DB02CDC2B11D95700D1817D /* ButtonUI.swift */,
+				B9AF59192B219BE2000BE18B /* python_wrapper.h */,
+				B9AF591A2B219BE2000BE18B /* python_wrapper.c */,
+				B9AF591C2B219EEC000BE18B /* addition.py */,
 				B95497872B1D4EEA00816138 /* Python-3.9-iOS-support.b12 */,
 				8DE96A1C2B1029CE001692E4 /* Assets.xcassets */,
 				8DE96A1E2B1029CE001692E4 /* Preview Content */,
+				B9AF59182B219BE2000BE18B /* NumericalCMPT-Bridging-Header.h */,
 			);
 			path = NumericalCMPT;
 			sourceTree = "<group>";
@@ -227,6 +243,7 @@
 				TargetAttributes = {
 					8DE96A142B1029CC001692E4 = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 					};
 					8DE96A242B1029CE001692E4 = {
 						CreatedOnToolsVersion = 15.0;
@@ -265,6 +282,7 @@
 			files = (
 				B95497882B1D4EEA00816138 /* Python-3.9-iOS-support.b12 in Resources */,
 				8DE96A202B1029CE001692E4 /* Preview Assets.xcassets in Resources */,
+				B9AF591D2B219EEC000BE18B /* addition.py in Resources */,
 				8DE96A1D2B1029CE001692E4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9AF591E2B21A546000BE18B /* addition.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9AF591F2B21A546000BE18B /* addition.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +313,7 @@
 				8DE96A1B2B1029CC001692E4 /* ContentView.swift in Sources */,
 				8DE96A452B1126A0001692E4 /* CircleImage.swift in Sources */,
 				8DD460592B119BB300F8A034 /* LoadingView.swift in Sources */,
+				B9AF591B2B219BE2000BE18B /* python_wrapper.c in Sources */,
 				8DE96A192B1029CC001692E4 /* NumericalCMPTApp.swift in Sources */,
 				8DB02CDD2B11D95700D1817D /* ButtonUI.swift in Sources */,
 			);
@@ -455,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NumericalCMPT/Preview Content\"";
@@ -473,6 +495,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RAHUL.NumericalCMPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NumericalCMPT/NumericalCMPT-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -483,6 +507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NumericalCMPT/Preview Content\"";
@@ -501,6 +526,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RAHUL.NumericalCMPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NumericalCMPT/NumericalCMPT-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

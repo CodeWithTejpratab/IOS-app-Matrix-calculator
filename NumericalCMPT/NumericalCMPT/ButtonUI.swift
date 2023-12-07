@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ButtonUI: View {
     @State private var enterButton = "Enter"
@@ -15,6 +16,8 @@ struct ButtonUI: View {
     @State private var numberDisplay: String = ""
     @State private var operationType = "gauss"
     @State private var matrixSize: Int = 2
+    @State private var number1: Double = 0 // test var
+    @State private var number2: Double = 0 // test var
     // this string helps concatinate numbers you can display 12
     var body: some View {
         VStack(){
@@ -426,6 +429,14 @@ struct ButtonUI: View {
                 Button(action: {
                     //do something
                     if enterButton == "Enter"{
+                        if number1 == 0{
+                            number1 = Double(number)
+                        }
+                        else if number2 == 0 {
+                            number2 = Double(number)
+                            let result = add_numbers(number1, number2)
+                            self.number = Float(result)
+                        }
                         numberDisplay = "0"
                         number = 0
                     }
