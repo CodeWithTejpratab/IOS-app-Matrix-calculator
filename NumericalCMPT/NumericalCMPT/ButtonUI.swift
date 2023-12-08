@@ -434,11 +434,11 @@ struct ButtonUI: View {
                         }
                         else if number2 == 0 {
                             number2 = Double(number)
-                            let result = add_numbers(number1, number2)
+                            let result = TestWrapper.addNumbers(number1, with: number2)
                             self.number = Float(result)
                         }
-                        numberDisplay = "0"
-                        number = 0
+                            numberDisplay = "0"
+                            number = 0
                     }
                     else if enterButton == "Compute"{
                         enterButton = "Enter"
