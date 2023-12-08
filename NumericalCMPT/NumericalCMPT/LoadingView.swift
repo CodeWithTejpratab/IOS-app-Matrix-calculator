@@ -11,9 +11,12 @@ struct LoadingView: View {
     @State private var isLoading = false
     @State private var size = 0.8
     @State private var opacity = 0.5
+        
     var body: some View {
         if isLoading{
-            ButtonUI()
+            ZStack {
+                ButtonUI()
+            }
         }
         else{
             ZStack {
@@ -45,8 +48,7 @@ struct LoadingView: View {
         }
     }
 
-    
+
 #Preview {
     LoadingView()
 }
-

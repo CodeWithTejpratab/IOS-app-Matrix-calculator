@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+class MatrixSize: ObservableObject {
+    @Published var n: Int = 3
+    
+    init(n: Int) {
+        self.n = 3
+    }
+}
+
 struct ButtonUI: View {
     @State private var enterButton = "Enter"
     @State private var number: Float = 0
@@ -14,7 +22,7 @@ struct ButtonUI: View {
     @State private var checkinput: String = "AL"
     @State private var numberDisplay: String = ""
     @State private var operationType = "gauss"
-    @State private var matrixSize: Int = 2
+    @StateObject private var matrixSize = MatrixSize(n: 3)
     // this string helps concatinate numbers you can display 12
     var body: some View {
         VStack(){
@@ -46,8 +54,7 @@ struct ButtonUI: View {
                 }
                 )
                 Button(action: {
-                    //do something
-                    matrixSize=2
+                    matrixSize.n = 2
                 }, label: {
                     Rectangle()
                         .fill(Color.pink)
@@ -60,8 +67,7 @@ struct ButtonUI: View {
                         )
                     })
                 Button(action: {
-                    //do something
-                    matrixSize=3
+                    matrixSize.n = 3
                 }, label: {
                     Rectangle()
                         .fill(Color.pink)
@@ -74,8 +80,7 @@ struct ButtonUI: View {
                         )
                     })
                 Button(action: {
-                    //do something
-                    matrixSize=4
+                    matrixSize.n = 4
                 }, label: {
                     Rectangle()
                         .fill(Color.pink)
@@ -88,8 +93,7 @@ struct ButtonUI: View {
                         )
                     })
                 Button(action: {
-                    //do something
-                    matrixSize=5
+                    matrixSize.n = 5
                 }, label: {
                     Rectangle()
                         .fill(Color.pink)
@@ -459,6 +463,7 @@ struct ButtonUI: View {
         .padding(.top, 5)
         .padding(.bottom, 40)
         
+        MatrixDisplay(matrixSize: matrixSize)
     }
 }
 
