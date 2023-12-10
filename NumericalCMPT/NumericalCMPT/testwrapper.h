@@ -9,12 +9,18 @@
 
 #ifndef testwrapper_h
 #define testwrapper_h
+//#include <vector>
 
+// Forward declaration
+//std::vector<double> chooseMethodAndSolve(std::vector<std::vector<double>>& matrix, int method);
+
+// Declare the Objective-C++ class interface
 @interface TestWrapper : NSObject
 
-// Declare a class method that wraps the C++ function
-+ (double)addNumbers:(double)num1 with:(double)num2;
+// Declare a method to solve the matrix which will be implemented in .mm file
+- (NSArray<NSNumber *> *)solveMatrix:(NSArray<NSArray<NSNumber *> *> *)matrix withMethod:(NSInteger)method;
 
 @end
+
 
 #endif /* testwrapper_h */

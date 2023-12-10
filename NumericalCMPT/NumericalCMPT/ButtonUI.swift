@@ -439,8 +439,20 @@ struct ButtonUI: View {
                         }
                         else if number2 == 0 {
                             number2 = Double(number)
-                            let result = TestWrapper.addNumbers(number1, with: number2)
-                            self.number = Float(result)
+                            let matrix: [[NSNumber]] = [
+                                [3, 1, -4, 7],
+                                [-2, 3, 1, -5],
+                                [2, 0, 5, 10]
+                            ]
+
+                            // Assuming you've exposed the method correctly to Swift and
+                            // 'solveMatrix' returns an NSArray of NSNumbers
+                            if let result = TestWrapper().solveMatrix(matrix, withMethod: 1) as? [Float] {
+                                // Use the result here
+                                self.number = result.first ?? 0
+
+                            }
+
                         }
                             numberDisplay = "0"
                             number = 0
