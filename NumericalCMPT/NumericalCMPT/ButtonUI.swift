@@ -15,6 +15,7 @@ struct ButtonUI: View {
     @State private var numberDisplay: String = ""
     @State private var operationType = "gauss"
     @State private var matrixSize: Int = 2
+    @State private var resultDisplay: [Float] = []
     // this string helps concatinate numbers you can display 12
     var body: some View {
         VStack(spacing: 8){
