@@ -20,7 +20,8 @@ struct ButtonUI: View {
     @State private var number2: Double = 0 // test var
     // this string helps concatinate numbers you can display 12
     var body: some View {
-        VStack(){
+        VStack(spacing: 8){
+            Spacer()
             HStack{
                 Text("\(Int(number))")
                     .frame(maxWidth: .infinity, maxHeight: 6, alignment: .trailing)
@@ -30,8 +31,7 @@ struct ButtonUI: View {
                     .foregroundColor(.gray)
                     .shadow(radius: 4)
             }//HStack ends here
-            .padding(.bottom, 50)
-            .padding(.top, 150)
+            Spacer()
             
             HStack{
                 Button(action: {
@@ -104,11 +104,7 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
-                
-                
             }
-            .padding(.bottom, -40)
-            .padding(.top, -40)
     
             
             HStack() {
@@ -160,72 +156,81 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
-                VStack{
-                    Button(action: {
-                        //do something
-                        
-                    }, label: {
-                        Rectangle()
-                            .fill(Color.pink)
-                            .frame(width: 50, height: 30)
-                            .shadow(radius: 10)
-                            .clipShape(Capsule())
-                            .overlay(
-                                Image(systemName: "arrowshape.up")
-                                    .font(.largeTitle)
-                                    .foregroundColor(Color(.white))
-                            )
-                    })
-                    HStack{
+                ZStack {
+                
+                    VStack{
                         Button(action: {
                             //do something
                             
                         }, label: {
                             Rectangle()
                                 .fill(Color.pink)
-                                .frame(width: 30, height: 50)
                                 .shadow(radius: 10)
                                 .clipShape(Capsule())
                                 .overlay(
-                                    Image(systemName: "arrowshape.left")
-                                        .font(.largeTitle)
+                                    Image(systemName: "arrowshape.up")
+                                        .font(.title)
                                         .foregroundColor(Color(.white))
                                 )
+                                .frame(width: 20, height: 26)
                         })
+                    }
+                    .padding(.bottom,50)
+                        HStack{
+                            Button(action: {
+                                //do something
+                                
+                            }, label: {
+                                Rectangle()
+                                    .fill(Color.pink)
+                                    .frame(width: 30, height: 20)
+                                    .shadow(radius: 10)
+                                    .clipShape(Capsule())
+                                    .overlay(
+                                        Image(systemName: "arrowshape.left")
+                                            .font(.title)
+                                            .foregroundColor(Color(.white))
+                                    )
+                            })
+                            Button(action: {
+                                //do something
+                                
+                            }, label: {
+                                Rectangle()
+                                    .fill(Color.pink)
+                                    .frame(width: 30, height: 20)
+                                    .shadow(radius: 10)
+                                    .clipShape(Capsule())
+                                    .overlay(
+                                        Image(systemName: "arrowshape.right")
+                                            .font(.title)
+                                            .foregroundColor(Color(.white))
+                                    )
+                            })
+                        }//HStack ends here
+                    
+                    VStack {
                         Button(action: {
-                            //do something
-                            
-                        }, label: {
-                            Rectangle()
-                                .fill(Color.pink)
-                                .frame(width: 30, height: 50)
-                                .shadow(radius: 10)
-                                .clipShape(Capsule())
-                                .overlay(
-                                    Image(systemName: "arrowshape.right")
-                                        .font(.largeTitle)
-                                        .foregroundColor(Color(.white))
-                                )
+                                //do something
+                           
+                            }, label: {
+                                Rectangle()
+                                    .fill(Color.pink)
+                                    .frame(width: 20, height: 26)
+                                    .shadow(radius: 10)
+                                    .clipShape(Capsule())
+                                    .overlay(
+                                        Image(systemName: "arrowshape.down")
+                                            .font(.title)
+                                            .foregroundColor(Color(.white))
+                                    )
                         })
-                    }//HStack ends here
-                    Button(action: {
-                        //do something
-                   
-                    }, label: {
-                        Rectangle()
-                            .fill(Color.pink)
-                            .frame(width: 50, height: 30)
-                            .shadow(radius: 10)
-                            .clipShape(Capsule())
-                            .overlay(
-                                Image(systemName: "arrowshape.down")
-                                    .font(.largeTitle)
-                                    .foregroundColor(Color(.white))
-                            )
-                    })
-                }//VStack ends here
+                    }
+                    .padding(.top,50)
+                    
+                   // }//VStack ends here
+                }//ZStack ends here
             }//HStack ends here
-            .padding(.top, 20)
             
             HStack() {
                 Button(action: {
@@ -294,7 +299,7 @@ struct ButtonUI: View {
                         )
                     })
             }//HStack ends here
-            .padding(.top,1)
+
             
             HStack() {
                 Button(action: {
@@ -362,7 +367,7 @@ struct ButtonUI: View {
                         )
                     })
             }//HStack ends here
-            .padding(.top,1)
+    
             
             HStack() {
                 Button(action: {
@@ -423,7 +428,7 @@ struct ButtonUI: View {
                         )
                     })
             }//HStack ends here
-            .padding(.top,1)
+            
             
             HStack{
                 Button(action: {
@@ -464,11 +469,8 @@ struct ButtonUI: View {
                         }
                 }) // I was experimenting with this so feel free to change it
             }//HStack ends here
-            .padding(.top)
-            .padding(.bottom,2)
+            
         }//VStack ends here
-        .padding(.top, 5)
-        .padding(.bottom, 40)
         
     }
 }
