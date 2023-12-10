@@ -35,7 +35,9 @@ using namespace std;
     for (double value : solution) {
         [solutionArray addObject:@(value)];
     }
-    
+    // testing if it works 
+    NSLog(@"Solution Array: %@", solutionArray);
+
     return solutionArray;
 }
 

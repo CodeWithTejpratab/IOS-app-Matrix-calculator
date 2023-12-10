@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 
+
 struct ButtonUI: View {
     @State private var enterButton = "Enter"
     @State private var number: Float = 0
@@ -445,13 +446,16 @@ struct ButtonUI: View {
                                 [2, 0, 5, 10]
                             ]
 
-                            // Assuming you've exposed the method correctly to Swift and
                             // 'solveMatrix' returns an NSArray of NSNumbers
-                            if let result = TestWrapper().solveMatrix(matrix, withMethod: 1) as? [Float] {
-                                // Use the result here
-                                self.number = result.first ?? 0
-
+                            if let result = TestWrapper().solveMatrix(matrix, withMethod: 1) as? [Double] {
+                                print("Result Array in swift: \(result)")
+                                self.number = Float(result.first ?? 0.0)
+                                print(number)
+                            } else {
+                                print("Casting to [Double] failed")
                             }
+
+
 
                         }
                             numberDisplay = "0"
