@@ -19,6 +19,7 @@
 		8DE96A452B1126A0001692E4 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE96A442B1126A0001692E4 /* CircleImage.swift */; };
 		B98FC6542B229EB400BB158A /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98FC6522B229EB400BB158A /* test.cpp */; };
 		B98FC65C2B22A67900BB158A /* testwrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B98FC65B2B22A67900BB158A /* testwrapper.mm */; };
+		B9F4433E2B259DF5006A5E28 /* MatrixResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F4433D2B259DF5006A5E28 /* MatrixResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		B98FC6592B22A26400BB158A /* testwrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testwrapper.h; sourceTree = "<group>"; };
 		B98FC65A2B22A37200BB158A /* NumericalCMPT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumericalCMPT-Bridging-Header.h"; sourceTree = "<group>"; };
 		B98FC65B2B22A67900BB158A /* testwrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = testwrapper.mm; sourceTree = "<group>"; };
+		B9F4433D2B259DF5006A5E28 /* MatrixResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				8DE96A442B1126A0001692E4 /* CircleImage.swift */,
 				8DE96A1A2B1029CC001692E4 /* ContentView.swift */,
 				8DD460582B119BB300F8A034 /* LoadingView.swift */,
+				B9F4433D2B259DF5006A5E28 /* MatrixResultView.swift */,
 				8DB02CDC2B11D95700D1817D /* ButtonUI.swift */,
 				B98FC6522B229EB400BB158A /* test.cpp */,
 				B98FC65B2B22A67900BB158A /* testwrapper.mm */,
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F4433E2B259DF5006A5E28 /* MatrixResultView.swift in Sources */,
 				8DE96A1B2B1029CC001692E4 /* ContentView.swift in Sources */,
 				8DE96A452B1126A0001692E4 /* CircleImage.swift in Sources */,
 				8DD460592B119BB300F8A034 /* LoadingView.swift in Sources */,

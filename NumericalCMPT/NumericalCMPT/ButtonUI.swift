@@ -24,6 +24,7 @@ struct ButtonUI: View {
         VStack(spacing: 8){
             Spacer()
             HStack{
+                
                 Text("\(Int(number))")
                     .frame(maxWidth: .infinity, maxHeight: 6, alignment: .trailing)
                     .padding(10)
@@ -449,6 +450,11 @@ struct ButtonUI: View {
                             // 'solveMatrix' returns an NSArray of NSNumbers
                             if let result = TestWrapper().solveMatrix(matrix, withMethod: 1) as? [Double] {
                                 print("Result Array in swift: \(result)")
+                                if !result.isEmpty {
+                                    print("This should be poppin up?")
+                                    MatrixResultView(matrix: matrix, result: result)
+                                        .padding()
+                                }
                                 self.number = Float(result.first ?? 0.0)
                                 print(number)
                             } else {
