@@ -435,12 +435,26 @@ struct ButtonUI: View {
             HStack{
                 Button(action: {
                     //do something
+                    let matrix: [[NSNumber]] = [
+                        [3, 1, -4, 7],
+                        [-2, 3, 1, -5],
+                        [2, 0, 5, 10]
+                    ]
+                    
+                    if operationType == "gauss"{
+                        if let resultDisplay = TestWrapper().solveMatrix(matrix, withMethod: 1)  as? [Double]{
+                            
+                            self.number = Float(resultDisplay.first ?? 0)
+                        }
+                        else if operationType == "gaussJordan"{
+                            if let resultDisplay = TestWrapper().solveMatrix(matrix, withMethod: 2)  as? [Double]{
+                                
+                                self.number = Float(resultDisplay.first ?? 0)
+                            }
+                        }
+                    }
+                    
                     if enterButton == "Enter"{
-                            let matrix: [[NSNumber]] = [
-                                [3, 1, -4, 7],
-                                [-2, 3, 1, -5],
-                                [2, 0, 5, 10]
-                            ]
 
                             // 'solveMatrix' returns an NSArray of NSNumbers
                             if let result = TestWrapper().solveMatrix(matrix, withMethod: 1) as? [Double] {
@@ -462,9 +476,7 @@ struct ButtonUI: View {
                             numberDisplay = "0"
                             number = 0
                     }
-                    else if enterButton == "Compute"{
-                        enterButton = "Enter"
-                    }
+                    
                     
                 }, label: {
                     Rectangle()
