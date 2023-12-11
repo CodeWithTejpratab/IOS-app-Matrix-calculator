@@ -8,24 +8,58 @@
 import SwiftUI
 import Foundation
 
+class MatrixDisplayValues: ObservableObject {
+    @Published var matrixSize: Int
+    @Published var operationType: String
+    @Published var number: Double
+    @Published var numberDisplay: String
+    @Published var row: Int
+    @Published var col: Int
+    @Published var matrix: [[String]]
+    @Published var augment: [String]
+    @Published var resetProgram: Int
+    
+    init(matrixSize: Int, operationType: String, number: Double, numberDisplay: String, row: Int, col: Int, matrix: [[String]], augment: [String], resetProgram: Int) {
+        self.matrixSize = matrixSize
+        self.operationType = operationType
+        self.number = number
+        self.numberDisplay = numberDisplay
+        self.row = row
+        self.col = col
+        self.matrix = matrix
+        self.augment = augment
+        self.resetProgram = resetProgram
+    }
+}
 
 struct ButtonUI: View {
+    @StateObject private var matrixDispVals = MatrixDisplayValues(
+        matrixSize: 3,
+        operationType: "Gauss",
+        number: 0,
+        numberDisplay: "",
+        row: 0,
+        col: 0,
+        matrix: Array(repeating: Array(repeating: "", count: 5), count: 5),
+        augment: Array(repeating: "", count: 5),
+        resetProgram: 0)
+    
     @State private var enterButton = "Enter"
-    @State private var number: Float = 0
     @State private var didTap: Bool = false
     @State private var checkinput: String = "AL"
-    @State private var numberDisplay: String = ""
-    @State private var operationType = "gauss"
-    @State private var matrixSize: Int = 2
     @State private var number1: Double = 0 // test var
     @State private var number2: Double = 0 // test var
+    @State private var arrowWasClicked: Bool = false
+    @State private var isDecimal: Bool = false
+    @State private var disableNumButtons: Bool = false
     // this string helps concatinate numbers you can display 12
     var body: some View {
         VStack(spacing: 8){
-            Spacer()
+            MatrixDisplay(matrixDispVals: matrixDispVals)
+
             HStack{
-                
-                Text("\(Int(number))")
+                Text(matrixDispVals.numberDisplay.isEmpty ? "0" : matrixDispVals.numberDisplay)
+                //Text("\(Int(matrixDispVals.number))")
                     .frame(maxWidth: .infinity, maxHeight: 6, alignment: .trailing)
                     .padding(10)
                     .font(.largeTitle)
@@ -37,7 +71,7 @@ struct ButtonUI: View {
             
             HStack{
                 Button(action: {
-                    operationType = (operationType == "gauss") ? "gaussJordan" : "gauss"
+                    matrixDispVals.operationType = (matrixDispVals.operationType == "Gauss") ? "Gauss Jordan" : "Gauss"
                 }, label: {
                     Rectangle()
                         .fill(Color.gray)
@@ -45,14 +79,14 @@ struct ButtonUI: View {
                         .shadow(radius: 150)
                         .clipShape(Capsule())
                         .overlay(
-                            Text(operationType)
+                            Text(matrixDispVals.operationType)
                                 .foregroundColor(Color(.white))
                         )
                 }
                 )
                 Button(action: {
                     //do something
-                    matrixSize=2
+                    matrixDispVals.matrixSize=2
                 }, label: {
                     Rectangle()
                         .fill(Color.pink)
@@ -66,7 +100,7 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                    matrixSize=3
+                    matrixDispVals.matrixSize=3
                 }, label: {
                     Rectangle()
                         .fill(Color.pink)
@@ -80,7 +114,7 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                    matrixSize=4
+                    matrixDispVals.matrixSize=4
                 }, label: {
                     Rectangle()
                         .fill(Color.pink)
@@ -94,7 +128,7 @@ struct ButtonUI: View {
                     })
                 Button(action: {
                     //do something
-                    matrixSize=5
+                    matrixDispVals.matrixSize=5
                 }, label: {
                     Rectangle()
                         .fill(Color.pink)
@@ -113,8 +147,8 @@ struct ButtonUI: View {
                 Button(action: {
                     //do something
                     checkinput = "C"
-                    numberDisplay += "1"
-                    number = Float(numberDisplay) ?? 0
+                    matrixDispVals.numberDisplay += "1"
+                    matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -126,11 +160,13 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
+
                 Button(action: {
                     //do something
                     checkinput = "C"
-                    numberDisplay += "2"
-                    number = Float(numberDisplay) ?? 0
+                    matrixDispVals.numberDisplay += "2"
+                    matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -142,11 +178,13 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
+
                 Button(action: {
                     //do something
                     checkinput = "C"
-                    numberDisplay += "3"
-                    number = Float(numberDisplay) ?? 0
+                    matrixDispVals.numberDisplay += "3"
+                    matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -158,11 +196,13 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
+
                 ZStack {
                 
                     VStack{
                         Button(action: {
-                            //do something
+                            matrixDispVals.row -= 1
                             
                         }, label: {
                             Rectangle()
@@ -180,8 +220,7 @@ struct ButtonUI: View {
                     .padding(.bottom,50)
                         HStack{
                             Button(action: {
-                                //do something
-                                
+                                matrixDispVals.col -= 1
                             }, label: {
                                 Rectangle()
                                     .fill(Color.pink)
@@ -195,7 +234,7 @@ struct ButtonUI: View {
                                     )
                             })
                             Button(action: {
-                                //do something
+                                matrixDispVals.col += 1
                                 
                             }, label: {
                                 Rectangle()
@@ -213,7 +252,7 @@ struct ButtonUI: View {
                     
                     VStack {
                         Button(action: {
-                                //do something
+                            matrixDispVals.row += 1
                            
                             }, label: {
                                 Rectangle()
@@ -232,14 +271,20 @@ struct ButtonUI: View {
                     
                    // }//VStack ends here
                 }//ZStack ends here
+                .onChange(of: matrixDispVals.row) {
+                    changeRowColIndex()
+                }
+                .onChange(of: matrixDispVals.col) {
+                    changeRowColIndex()
+                }
             }//HStack ends here
             
             HStack() {
                 Button(action: {
                     //do something
                     checkinput = "C"
-                    numberDisplay += "4"
-                    number = Float(numberDisplay) ?? 0
+                    matrixDispVals.numberDisplay += "4"
+                    matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -251,11 +296,13 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
+
                 Button(action: {
                     //do something
                     checkinput = "C"
-                    numberDisplay += "5"
-                    number = Float(numberDisplay) ?? 0
+                    matrixDispVals.numberDisplay += "5"
+                    matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -267,11 +314,13 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
+
                 Button(action: {
                     //do something
                     checkinput = "C"
-                    numberDisplay += "6"
-                    number = Float(numberDisplay) ?? 0
+                    matrixDispVals.numberDisplay += "6"
+                    matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -283,10 +332,12 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
+
                 Button(action: {
                     //do something
-                    numberDisplay="0"
-                    number=0
+                    matrixDispVals.numberDisplay=""
+                    matrixDispVals.number=0
                     checkinput = "AL"
                       
                 }, label: {
@@ -307,8 +358,8 @@ struct ButtonUI: View {
                 Button(action: {
                     //do something
                     checkinput = "C"
-                    numberDisplay += "7"
-                    number = Float(numberDisplay) ?? 0
+                    matrixDispVals.numberDisplay += "7"
+                    matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -320,11 +371,13 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
+
                 Button(action: {
                     //do something
                     checkinput = "C"
-                    numberDisplay += "8"
-                    number = Float(numberDisplay) ?? 0
+                    matrixDispVals.numberDisplay += "8"
+                    matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -336,11 +389,13 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
+
                 Button(action: {
                     //do something
                     checkinput = "C"
-                    numberDisplay += "9"
-                    number = Float(numberDisplay) ?? 0
+                    matrixDispVals.numberDisplay += "9"
+                    matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -352,18 +407,24 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
+
                 Button(action: {
-                    if !numberDisplay.isEmpty {
-                        numberDisplay.removeLast()
-                        number = Float(numberDisplay) ?? 0
+                    if (!matrixDispVals.numberDisplay.isEmpty && matrixDispVals.numberDisplay.count > 1) {
+                        matrixDispVals.numberDisplay.removeLast()
+                        matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
                     }
+                    else {
+                        matrixDispVals.numberDisplay = ""
+                    }
+                    
                 }, label: {
                     Circle()
                         .fill(Color.pink)
                         .frame(width: 70, height: 65)
                         .shadow(radius: 10)
                         .overlay(
-                            Text("del")
+                            Text("Del")
                                 .font(.largeTitle)
                                 .foregroundColor(Color(.white))
                         )
@@ -373,8 +434,11 @@ struct ButtonUI: View {
             
             HStack() {
                 Button(action: {
-                    //do something
-
+                    if (!isDecimal && !matrixDispVals.numberDisplay.isEmpty) {
+                        matrixDispVals.numberDisplay += "."
+                        matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
+                    }
+                    
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -386,10 +450,18 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(isDecimal)
+                .disabled(disableNumButtons)
+
                 Button(action: {
-                    //do something
-                    numberDisplay += "0"
-                    number = Float(numberDisplay) ?? 0
+                    if (matrixDispVals.numberDisplay != "0") {
+                        matrixDispVals.numberDisplay += "0"
+                        matrixDispVals.number = Double(matrixDispVals.numberDisplay) ?? 0
+                    }
+                    else {
+                        matrixDispVals.numberDisplay = ""
+                    }
+                    
                 }, label: {
                     Circle()
                         .fill(Color.pink)
@@ -401,8 +473,12 @@ struct ButtonUI: View {
                                 .foregroundColor(Color(.white))
                         )
                     })
+                .disabled(disableNumButtons)
                 Button(action: {
-                    //do something
+                    if (matrixDispVals.number != 0) {
+                        matrixDispVals.number *= -1
+                        matrixDispVals.numberDisplay = String(matrixDispVals.number)
+                    }
                         
                 }, label: {
                     Circle()
@@ -416,7 +492,13 @@ struct ButtonUI: View {
                         )
                     })
                 Button(action: {
-                    //do something
+                    matrixDispVals.row = 0
+                    matrixDispVals.col = 0
+                    matrixDispVals.matrix = Array(repeating: Array(repeating: "", count: 5), count: 5)
+                    matrixDispVals.augment = Array(repeating: "", count: 5)
+                    matrixDispVals.numberDisplay = "0"
+                    arrowWasClicked = true
+                    matrixDispVals.resetProgram += 1
                         
                 }, label: {
                     Circle()
@@ -424,83 +506,107 @@ struct ButtonUI: View {
                         .frame(width: 70, height: 65)
                         .shadow(radius: 10)
                         .overlay(
-                            Text("new")
+                            Text("New")
                                 .font(.largeTitle)
                                 .foregroundColor(Color(.white))
                         )
                     })
             }//HStack ends here
-            
-            
-            HStack{
-                Button(action: {
-                    //do something
-                    let matrix: [[NSNumber]] = [
-                        [3, 1, -4, 7],
-                        [-2, 3, 1, -5],
-                        [2, 0, 5, 10]
-                    ]
-                    
-                    if operationType == "gauss"{
-                        if let resultDisplay = TestWrapper().solveMatrix(matrix, withMethod: 1)  as? [Double]{
-                            
-                            self.number = Float(resultDisplay.first ?? 0)
-                        }
-                        else if operationType == "gaussJordan"{
-                            if let resultDisplay = TestWrapper().solveMatrix(matrix, withMethod: 2)  as? [Double]{
-                                
-                                self.number = Float(resultDisplay.first ?? 0)
-                            }
-                        }
-                    }
-                    
-                    if enterButton == "Enter"{
-
-                            // 'solveMatrix' returns an NSArray of NSNumbers
-                            if let result = TestWrapper().solveMatrix(matrix, withMethod: 1) as? [Double] {
-                                print("Result Array in swift: \(result)")
-                                if !result.isEmpty {
-                                    print("This should be poppin up?")
-                                    MatrixResultView(matrix: matrix, result: result)
-                                        .padding()
-                                }
-                                self.number = Float(result.first ?? 0.0)
-                                print(number)
-                            } else {
-                                print("Casting to [Double] failed")
-                            }
-
-
-
-                        
-                            numberDisplay = "0"
-                            number = 0
-                    }
-                    
-                    
-                }, label: {
-                    Rectangle()
-                        .fill(Color.green)
-                        .frame(width: 250, height: 65)
-                        .shadow(radius: 200)
-                        .clipShape(Capsule())
-                        .overlay(
-                            Text("\(enterButton)")
-                                .font(.largeTitle)
-                                .fontWidth(.condensed)
-                                .foregroundColor(Color(.white))
-                        )
-                }).gesture(LongPressGesture(minimumDuration: 0.5).onEnded { _ in
-                    if enterButton == "Enter" {
-                            enterButton = "Compute"
-                        } else if enterButton == "Compute" {
-                            enterButton = "Enter"
-                        }
-                }) // I was experimenting with this so feel free to change it
-            }//HStack ends here
-            
         }//VStack ends here
+        .position(x: UIScreen.main.nativeBounds.width / 6, y: UIScreen.main.nativeBounds.height / 8.4)
+        .onChange(of: matrixDispVals.numberDisplay) {
+            setMatrixValues()
+            
+            isDecimal = matrixDispVals.numberDisplay.contains(".") ? true : false
+            
+            let numberNoDecimal = matrixDispVals.numberDisplay.replacingOccurrences(of: ".", with: "")
+            if (numberNoDecimal.count > 8) {
+                disableNumButtons = true
+            }
+            else {
+                disableNumButtons = false
+            }
+        }
+        .onChange(of: matrixDispVals.matrixSize, changeRowColIndex)
+    }
+    
+    private func setMatrixValues() {
+        if (matrixDispVals.numberDisplay.hasPrefix("0") && matrixDispVals.numberDisplay.count > 1) {
+            matrixDispVals.numberDisplay.removeFirst()
+        }
         
+        if (!matrixDispVals.numberDisplay.isEmpty && !arrowWasClicked) {
+            matrixDispVals.number = Double(matrixDispVals.numberDisplay)!
+            
+            if (matrixDispVals.col < matrixDispVals.matrixSize) {
+                matrixDispVals.matrix[matrixDispVals.row][matrixDispVals.col] = formatNumberForDisplay(matrixDispVals.number)
+            }
+            else {
+                matrixDispVals.augment[matrixDispVals.row] = formatNumberForDisplay(matrixDispVals.number)
+            }
+        }
+        else {
+            matrixDispVals.numberDisplay = ""
+            
+            if (matrixDispVals.col < matrixDispVals.matrixSize) {
+                matrixDispVals.matrix[matrixDispVals.row][matrixDispVals.col] = ""
+            }
+            else {
+                matrixDispVals.augment[matrixDispVals.row] = ""
+            }
+            
+            arrowWasClicked = false
+        }
+    }
+    
+    private func changeNumberToMatrixValue() {
+        if (matrixDispVals.col < matrixDispVals.matrixSize) {
+            matrixDispVals.numberDisplay = matrixDispVals.matrix[matrixDispVals.row][matrixDispVals.col]
+            
+            if (matrixDispVals.matrix[matrixDispVals.row][matrixDispVals.col].isEmpty) {
+                arrowWasClicked = true
+            }
+            else {
+                arrowWasClicked = false
+            }
+        }
+        else {
+            matrixDispVals.numberDisplay = matrixDispVals.augment[matrixDispVals.row]
+            
+            if (matrixDispVals.augment[matrixDispVals.row].isEmpty) {
+                arrowWasClicked = true
+            }
+            else {
+                arrowWasClicked = false
+            }
+        }
+    }
+    
+    private func changeRowColIndex() {
+        if (matrixDispVals.row < 0) {
+            matrixDispVals.row = 0
+        }
+        else if (matrixDispVals.row > matrixDispVals.matrixSize - 1) {
+            matrixDispVals.row = matrixDispVals.matrixSize - 1
+        }
+        
+        if (matrixDispVals.col < 0) {
+            matrixDispVals.col = 0
+        }
+        else if (matrixDispVals.col > matrixDispVals.matrixSize) {
+            matrixDispVals.col = matrixDispVals.matrixSize
+        }
+        
+        changeNumberToMatrixValue()
+    }
+    
+    private func formatNumberForDisplay(_ number: Double) -> String {
+        if number.truncatingRemainder(dividingBy: 1) == 0 {
+            return String(format: "%.0f", number)
+        } 
+        else {
+            return String(format: "%.8f", number)
+        }
     }
 }
 
