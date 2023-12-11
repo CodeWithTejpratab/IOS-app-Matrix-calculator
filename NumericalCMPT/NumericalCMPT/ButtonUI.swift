@@ -436,11 +436,6 @@ struct ButtonUI: View {
                 Button(action: {
                     //do something
                     if enterButton == "Enter"{
-                        if number1 == 0{
-                            number1 = Double(number)
-                        }
-                        else if number2 == 0 {
-                            number2 = Double(number)
                             let matrix: [[NSNumber]] = [
                                 [3, 1, -4, 7],
                                 [-2, 3, 1, -5],
@@ -463,7 +458,7 @@ struct ButtonUI: View {
 
 
 
-                        }
+                        
                             numberDisplay = "0"
                             number = 0
                     }
