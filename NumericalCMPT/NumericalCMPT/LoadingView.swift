@@ -13,7 +13,9 @@ struct LoadingView: View {
     @State private var opacity = 0.5
     var body: some View {
         if isLoading{
-            ButtonUI()
+            ZStack {
+                ButtonUI()
+            }
         }
         else{
             ZStack {

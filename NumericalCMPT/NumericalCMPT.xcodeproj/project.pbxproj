@@ -17,6 +17,9 @@
 		8DE96A342B1029CE001692E4 /* NumericalCMPTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE96A332B1029CE001692E4 /* NumericalCMPTUITests.swift */; };
 		8DE96A362B1029CE001692E4 /* NumericalCMPTUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE96A352B1029CE001692E4 /* NumericalCMPTUITestsLaunchTests.swift */; };
 		8DE96A452B1126A0001692E4 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE96A442B1126A0001692E4 /* CircleImage.swift */; };
+		B98FC6542B229EB400BB158A /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98FC6522B229EB400BB158A /* test.cpp */; };
+		B98FC65C2B22A67900BB158A /* testwrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B98FC65B2B22A67900BB158A /* testwrapper.mm */; };
+		B9F4433E2B259DF5006A5E28 /* MatrixResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F4433D2B259DF5006A5E28 /* MatrixResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B954978F2B1D537500816138 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8DB02CDC2B11D95700D1817D /* ButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUI.swift; sourceTree = "<group>"; };
 		8DD460582B119BB300F8A034 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -50,6 +66,12 @@
 		8DE96A332B1029CE001692E4 /* NumericalCMPTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericalCMPTUITests.swift; sourceTree = "<group>"; };
 		8DE96A352B1029CE001692E4 /* NumericalCMPTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericalCMPTUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8DE96A442B1126A0001692E4 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		B98FC6522B229EB400BB158A /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		B98FC6532B229EB400BB158A /* test.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test.hpp; sourceTree = "<group>"; };
+		B98FC6592B22A26400BB158A /* testwrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testwrapper.h; sourceTree = "<group>"; };
+		B98FC65A2B22A37200BB158A /* NumericalCMPT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumericalCMPT-Bridging-Header.h"; sourceTree = "<group>"; };
+		B98FC65B2B22A67900BB158A /* testwrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = testwrapper.mm; sourceTree = "<group>"; };
+		B9F4433D2B259DF5006A5E28 /* MatrixResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +126,13 @@
 				8DE96A442B1126A0001692E4 /* CircleImage.swift */,
 				8DE96A1A2B1029CC001692E4 /* ContentView.swift */,
 				8DD460582B119BB300F8A034 /* LoadingView.swift */,
+				B9F4433D2B259DF5006A5E28 /* MatrixResultView.swift */,
 				8DB02CDC2B11D95700D1817D /* ButtonUI.swift */,
+				B98FC6522B229EB400BB158A /* test.cpp */,
+				B98FC65B2B22A67900BB158A /* testwrapper.mm */,
+				B98FC65A2B22A37200BB158A /* NumericalCMPT-Bridging-Header.h */,
+				B98FC6592B22A26400BB158A /* testwrapper.h */,
+				B98FC6532B229EB400BB158A /* test.hpp */,
 				8DE96A1C2B1029CE001692E4 /* Assets.xcassets */,
 				8DE96A1E2B1029CE001692E4 /* Preview Content */,
 			);
@@ -146,6 +174,7 @@
 				8DE96A112B1029CC001692E4 /* Sources */,
 				8DE96A122B1029CC001692E4 /* Frameworks */,
 				8DE96A132B1029CC001692E4 /* Resources */,
+				B954978F2B1D537500816138 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -204,6 +233,7 @@
 				TargetAttributes = {
 					8DE96A142B1029CC001692E4 = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 					};
 					8DE96A242B1029CE001692E4 = {
 						CreatedOnToolsVersion = 15.0;
@@ -266,11 +296,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F4433E2B259DF5006A5E28 /* MatrixResultView.swift in Sources */,
 				8DE96A1B2B1029CC001692E4 /* ContentView.swift in Sources */,
 				8DE96A452B1126A0001692E4 /* CircleImage.swift in Sources */,
 				8DD460592B119BB300F8A034 /* LoadingView.swift in Sources */,
 				8DE96A192B1029CC001692E4 /* NumericalCMPTApp.swift in Sources */,
 				8DB02CDD2B11D95700D1817D /* ButtonUI.swift in Sources */,
+				B98FC6542B229EB400BB158A /* test.cpp in Sources */,
+				B98FC65C2B22A67900BB158A /* testwrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NumericalCMPT/Preview Content\"";
@@ -449,6 +483,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RAHUL.NumericalCMPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NumericalCMPT/NumericalCMPT-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -459,6 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NumericalCMPT/Preview Content\"";
@@ -477,6 +514,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RAHUL.NumericalCMPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NumericalCMPT/NumericalCMPT-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
