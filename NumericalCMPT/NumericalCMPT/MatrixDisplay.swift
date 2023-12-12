@@ -20,6 +20,7 @@ struct MatrixDisplay: View {
     @State private var enterButton = "Enter"
     @State var canCompute = false
     @State var showMatrixView = true
+    @State  var methodchooser: Int = 1
             
     var body: some View {
         ZStack {
@@ -103,11 +104,17 @@ struct MatrixDisplay: View {
                         if enterButton == "Enter" {
                             setMatrixToCompute()
                             
+                            if matrixDispVals.operationType == "Gauss"{
+                                methodchooser = 1 }
+                            else {
+                                methodchooser = 2
+                            }
+                        
                             // 'solveMatrix' returns an NSArray of NSNumbers
-                            if let result = TestWrapper().solveMatrix(computeAugmentedMatrix.augmentedMatrix, withMethod: 1) as? [Double] {
+                            if let result = TestWrapper().solveMatrix(computeAugmentedMatrix.augmentedMatrix, withMethod: methodchooser) as? [Double] {
                                 print("Result Array in swift: \(result)")
                                 if !result.isEmpty {
-                                    print("This should be poppin up?")
+                                    // print("This should be poppin up?")
                                     computeAugmentedMatrix.result = result
                                 }
                                 
