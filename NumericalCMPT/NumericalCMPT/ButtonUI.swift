@@ -449,7 +449,7 @@ struct ButtonUI: View {
                                 .font(.largeTitle)
                                 .foregroundColor(Color(.white))
                         )
-                    })
+                })
                 .disabled(isDecimal)
                 .disabled(disableNumButtons)
 
@@ -477,7 +477,7 @@ struct ButtonUI: View {
                 Button(action: {
                     if (matrixDispVals.number != 0) {
                         matrixDispVals.number *= -1
-                        matrixDispVals.numberDisplay = String(matrixDispVals.number)
+                        matrixDispVals.numberDisplay = formatNumberForDisplay(matrixDispVals.number)
                     }
                         
                 }, label: {
@@ -536,17 +536,18 @@ struct ButtonUI: View {
         }
         
         if (!matrixDispVals.numberDisplay.isEmpty && !arrowWasClicked) {
-            matrixDispVals.number = Double(matrixDispVals.numberDisplay)!
+            //matrixDispVals.number = Double(matrixDispVals.numberDisplay)
             
             if (matrixDispVals.col < matrixDispVals.matrixSize) {
-                matrixDispVals.matrix[matrixDispVals.row][matrixDispVals.col] = formatNumberForDisplay(matrixDispVals.number)
+                matrixDispVals.matrix[matrixDispVals.row][matrixDispVals.col] = matrixDispVals.numberDisplay
             }
             else {
-                matrixDispVals.augment[matrixDispVals.row] = formatNumberForDisplay(matrixDispVals.number)
+                matrixDispVals.augment[matrixDispVals.row] = matrixDispVals.numberDisplay
             }
         }
         else {
             matrixDispVals.numberDisplay = ""
+            matrixDispVals.number = 0
             
             if (matrixDispVals.col < matrixDispVals.matrixSize) {
                 matrixDispVals.matrix[matrixDispVals.row][matrixDispVals.col] = ""
