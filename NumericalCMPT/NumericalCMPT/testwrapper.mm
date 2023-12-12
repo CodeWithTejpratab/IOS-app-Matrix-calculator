@@ -9,7 +9,7 @@
 // testwrapper.mm
 
 #import "testwrapper.h"
-#include "test.hpp" // Include the C++ header with the numerical methods
+#include "test.hpp"
 #include <vector>
 
 using namespace std;

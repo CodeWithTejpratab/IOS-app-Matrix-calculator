@@ -96,19 +96,23 @@ vector<double> gaussJordan(vector<vector<double>>& matrix) {
     // Fill solution vector
     for (int i = 0; i < n; i++) {
         x[i] = matrix[i][n] / matrix[i][i];
+        //cout << x[i] << endl;
     }
 
     return x;
 }
 
 vector<double> chooseMethodAndSolve(vector<vector<double>>& matrix, int method) {
-    cout << "It works!" << endl;
+    cout << "method: " << method << endl;
     if (method == 1) {
+        cout << "Gauss Result: " << endl;
         return gauss(matrix);
     } else if (method == 2) {
+        cout << "Gauss-Jordan Result: " << endl;
         return gaussJordan(matrix);
     } else {
         cout << "Invalid method choice. Exiting program." << endl;
+        //cout << "Did it trigger?" << endl;
         return vector<double>(); // Return an empty vector in case of invalid choice
     }
 }
