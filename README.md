@@ -27,5 +27,4 @@ This repository hosts the code for a sophisticated matrix calculator implemented
 - Rahul Ramjeawon
 - Stefan Magardino
 <img src="screenshot.png" width="128"/>
-![Screenshot](screenshot.png)
-![Screenshot](screenshot1.png)
+<img src="screenshot1.png" width="128"/>
