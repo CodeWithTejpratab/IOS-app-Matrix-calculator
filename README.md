@@ -26,3 +26,6 @@ This repository hosts the code for a sophisticated matrix calculator implemented
 - Emil Levin
 - Rahul Ramjeawon
 - Stefan Magardino
+
+![Screenshot](screenshot.png)
+![Screenshot](screenshot1.png)
