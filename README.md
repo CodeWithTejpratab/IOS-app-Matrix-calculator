@@ -1,3 +1,4 @@
+<img src="screenshot.png" width="128"/> <img src="screenshot1.png" width="128"/>
 
 # Matrix Calculator: Gauss & Gauss-Jordan Methods
 
@@ -26,5 +27,5 @@ This repository hosts the code for a sophisticated matrix calculator implemented
 - Emil Levin
 - Rahul Ramjeawon
 - Stefan Magardino
-<img src="screenshot.png" width="128"/>
-<img src="screenshot1.png" width="128"/>
+
+
